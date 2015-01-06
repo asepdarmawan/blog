@@ -27,9 +27,7 @@
 			<li><a href="https://github.com/asepdarmawan">Github</a></li>
 			<li><a href="mailto:asep@41studio.com">Email</a></li>
 		</ul>
-		<% if !user_signed_in? %>
-			<p class="sign_in">Admin Login</p>
-		<% end %>
+		
 	</div>
 
 	<div id="main_content">
@@ -45,15 +43,19 @@
 			<% if user_signed_in? %>
 				<div class="buttons">
 					<button class="button"><%= link_to "New Post", new_post_path %></button>
-					<button class="button">Log Out</button>
+					<button class="button"><%= link_to 'Edit profile', edit_user_registration_path %></button>
+					<button class="button"><%= link_to "Log Out", destroy_user_session_path, method: :delete %> </button>
+				</div>
+			<% else %>
+				<div class="buttons">
+					<button class="button"><%= link_to "Login", new_user_session_path, :class => 'sign_in'  %></button>
 				</div>
 			<% end %>
 		</div>
-
 		<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert") %>
 		<% end %>
-
+		
 		<%= yield %>
 	</div>
 
