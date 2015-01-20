@@ -12,10 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require social-share-button
  */
 
 @import 'normalize';
-
+@import 'bootstrap';
 html, body {
 	font-family: 'Raleway', sans-serif;
 }
@@ -268,4 +269,21 @@ input[type="submit"]{
 .action{
 	color: #33acb7;
 	text-decoration: none;
+}
+#avatar{
+	width: 35px;
+	height: 35px;
+	float: left;
+	img{
+		width: 100%;
+		border-radius: 0.35em;
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+	}
+}
+#header-post {
+	padding: 1em 3em;
+	border-bottom: 1px solid #d6dce0;
+	color: #9eafba;
 }
